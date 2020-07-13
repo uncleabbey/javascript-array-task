@@ -23,18 +23,29 @@ function isEven(num) {
   }
   return false;
 } 
+var tasktwo = document.querySelector('.tasktwo')
 
-var input = "025468"
-var array = [];
-for (let index = 0; index < input.length; index++) {
-  if (isEven(index)) {
-    array.push(index + '-')
-  } else {
-    array.push(index)
+tasktwo.onclick = () => {
+   function insertHyphen(str) {
+  var strArr = str.split('');
+  var numArr = strArr.map(Number);
+  var result ="";
+  for(var i = 0; i < numArr.length; i++) {
+   if((numArr[i+1]!==undefined)&&(numArr[i]%2===0 && numArr[i+1]%2===0)) {
+        //numArr.push('-');
+        result = result + numArr[i] + "-";
+    }else{
+        result = result + numArr[i];
+    }
   }
-  }
+  return result;
+}
+ var inputs = prompt(' please input the numbers')
 
-console.log(array);
+ alert(insertHyphen(inputs))
+
+}
+
 
 var taskthree = document.querySelector('.taskthree')
 
@@ -59,3 +70,5 @@ taskthree.onclick = () => {
   
   alert(item + " ( " + mf + " times ) ");
 }
+
+
